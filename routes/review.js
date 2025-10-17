@@ -5,6 +5,8 @@ const ExpressError=require("../utils/ExpressError.js");
 const{reviewSchema}=require("../schema.js");
 const Review =require("../models/review.js");
 const Listing =require("../models/listing.js");
+const mongoose = require("mongoose");
+
 
 const validateReview=(req,res,next)=>{
     let {error}=reviewSchema.validate(req.body);
@@ -25,6 +27,7 @@ router.post("/", validateReview, wrapAsync(async (req, res) => {
     listing.reviews.push(newReview);
     await newReview.save();
     await listing.save();
+    req.flash("success","New Review Created!");
 
     // Detect by Accept header
     const acceptHeader = req.get("Accept") || "";
@@ -48,6 +51,7 @@ router.delete("/:reviewId", wrapAsync(async (req, res) => {
         $pull: { reviews: new mongoose.Types.ObjectId(reviewId) } 
     });
     await Review.findByIdAndDelete(reviewId);
+    req.flash("success","Review Deleted!");
     res.redirect(`/listings/${id}`);
 }));
 
