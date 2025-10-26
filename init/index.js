@@ -3,7 +3,7 @@ const initData=require("./data.js");
 const Listing =require("../models/listing.js");
 require('dotenv').config();
 
-// const mongo_url="mongodb://127.0.0.1:27017/wanderlust";
+// const mongo_url="mongodb://127.0.0.1:27017/StayEase";
 const dbUrl= process.env.ATLASDB_URL;
 
 async function main(){
