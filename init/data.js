@@ -147,7 +147,7 @@ const sampleListings = [
     location: "Bali",
     country: "Indonesia",
     geometry: { type: "Point", coordinates: [115.1889, -8.4095] },
-    category: "Trending",
+    category: "Amazing pools",
   },
   {
     title: "Mountain View Cabin in Banff",
@@ -167,7 +167,7 @@ const sampleListings = [
     location: "Miami",
     country: "United States",
     geometry: { type: "Point", coordinates: [-80.1918, 25.7617] },
-    category: "Rooms",
+    category: "Artic",
   },
   {
     title: "Tropical Villa in Phuket",
@@ -187,7 +187,7 @@ const sampleListings = [
     location: "Scottish Highlands",
     country: "United Kingdom",
     geometry: { type: "Point", coordinates: [-4.2026, 57.4778] },
-    category: "Rooms",
+    category: "Tasty food",
   },
   {
     title: "Desert Oasis in Dubai",
@@ -207,7 +207,7 @@ const sampleListings = [
     location: "Montana",
     country: "United States",
     geometry: { type: "Point", coordinates: [-109.3498, 46.8797] },
-    category: "Mountains",
+    category: "Castles",
   },
   {
     title: "Beachfront Villa in Greece",
@@ -217,7 +217,7 @@ const sampleListings = [
     location: "Mykonos",
     country: "Greece",
     geometry: { type: "Point", coordinates: [25.3289, 37.4467] },
-    category: "Trending",
+    category: "Amazing pools",
   },
   {
     title: "Eco-Friendly Treehouse Retreat",
@@ -247,7 +247,7 @@ const sampleListings = [
     location: "Tokyo",
     country: "Japan",
     geometry: { type: "Point", coordinates: [139.6917, 35.6895] },
-    category: "Iconic cities",
+    category: "Farms",
   },
   {
     title: "Lakefront Cabin in New Hampshire",
@@ -287,7 +287,7 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
     geometry: { type: "Point", coordinates: [-85.6681, 10.4017] },
-    category: "Trending",
+    category: "Domes",
   },
 ];
 

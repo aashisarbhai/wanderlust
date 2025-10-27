@@ -13,11 +13,13 @@ const listingsRouter=require("./routes/listing.js");
 const reviewsRouter=require("./routes/review.js");
 const session=require("express-session");
 const MongoStore=require("connect-mongo");
+const Listing = require("./models/listing");
 const flash=require("connect-flash");
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const User=require("./models/user.js");
 const userRouter=require("./routes/user.js");
+const models=require("./models/listing.js");
 
 const dbUrl= process.env.ATLASDB_URL;
 
@@ -88,6 +90,28 @@ app.use((req,res,next)=>{
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
+
+//category route
+app.get("/listings/category/:name", async (req, res) => {
+  const { name } = req.params;
+  const allListings = await Listing.find({ category: name });
+  res.render("listings/index.ejs", { allListings, activeCategory: name });
+});
+
+//search route
+app.get("/search",async(req,res)=>{
+    const query=req.query.q;
+    console.log(query);
+    try{
+        const results=await Listing.find({
+            title:{$regex:query,$options:'i'}
+        });
+        res.render("listings/searchResults.ejs",{results,query});
+    }catch(err){
+        console.log(err)
+        res.send("error while searching");
+    }
+});
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page not Found!"));
